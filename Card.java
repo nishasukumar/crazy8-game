@@ -1,3 +1,9 @@
+/**
+* This program defines a Card which has a suit and a denomination.
+* 
+* author: Nisha Sukumar
+*/
+
 public class Card {
 	public String suit;
 	public String denomination;

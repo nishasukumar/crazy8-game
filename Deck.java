@@ -1,3 +1,9 @@
+/**
+* This program contains all methods that involve Cards when playing crazy8.
+* 
+* author: Nisha Sukumar
+*/
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -11,6 +17,7 @@ public class Deck {
 		
 	}
 	
+	//creates an array list of cards that is in random order
 	public ArrayList<Card> fillDeck(){
 		String[] suits = new String[] {"Hearts", "Spades", "Diamonds", "Clubs"};
 		String[] denomination = new String[] {"K", "Q", "J", "10", "9", "8", "7", "6", "5", "4", "3", "2", "A"};
@@ -24,6 +31,7 @@ public class Deck {
 		return deck;
 	}
 	
+	//fills the arraylist holding the player's and the opponent's hand with the first 10 Cards from the deck arraylist
 	public ArrayList<Card> distributeCard() {
 		for(int i = 0; i < 10; i = i + 2) {
 			myHand.add(deck.get(i));
@@ -35,6 +43,7 @@ public class Deck {
 		return deck;
 	}
 	
+	//gets a legal first card from the deck to start the game
 	public Card flipCard() {
 		if(deck.size() == 0) {
 			switchDecks();
@@ -50,6 +59,7 @@ public class Deck {
 		return temp;
 	}
 	
+	//moves the discard pile Cards to the deck when the deck is empty
 	public ArrayList<Card> switchDecks(){
 		deck = discardDeck;
 		discardDeck.clear();
@@ -57,6 +67,7 @@ public class Deck {
 		return deck;
 	}
 	
+	//gets a Card and places it into the player's hand array list
 	public Card drawCardMe() {
 		if(deck.size() == 0) {
 			switchDecks();
@@ -67,6 +78,7 @@ public class Deck {
 		return temp;
 	}
 	
+	//gets a Card and places it into the computer's hand array list
 	public Card drawCardOp() {
 		if(deck.size() == 0) {
 			switchDecks();
@@ -77,16 +89,19 @@ public class Deck {
 		return temp;
 	}
 	
+	//takes a Card out of the arraylist of the player's hand
 	public void placeCardMe(Card c) {
 		discardDeck.add(c);
 		myHand.remove(c);
 	}
 	
+	//takes a Card out of the arraylist of the opponents's hand
 	public void placeCardOp(Card c) {
 		discardDeck.add(c);
 		opHand.remove(c);
 	}
 	
+	//finds the suit with the greatest number of Cards in the opponent's hand
 	public int greatestSuit() {
 		int heartNum = 0;
 		int spadeNum = 0;
@@ -122,6 +137,7 @@ public class Deck {
 		return 3;
 	}
 	
+	//displays the Cards in the player's hand
 	public String toString() {
 		String display = "Your Hand: { | ";
 		for(int i = 0; i < myHand.size(); i++) {
