@@ -47,7 +47,7 @@ public class Game {
 				if(one.myHand.get(cardNumber).denomination.equals("8")) {
 					inPlay = one.myHand.get(cardNumber);
 					one.placeCardMe(one.myHand.get(cardNumber));
-					while(chosenSuit < 1 || chosenSuit > 4) {
+					while(chosenSuit < 0 || chosenSuit > 3) {
 						System.out.println("Choose a suit: [1] Hearts, [2] Spades, [3] Diamonds, [4] Clubs");
 						System.out.print("Suit: ");
 						chosenSuit = (input.nextInt()-1);
